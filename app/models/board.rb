@@ -1,3 +1,5 @@
+# require 'puzzlegen'
+
 class Board
 
   attr_reader :boardstring, :cells, :rows, :squares, :columns
