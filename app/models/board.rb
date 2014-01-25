@@ -1,12 +1,14 @@
-require 'pry'
-require 'board_helper.rb'
+require 'nokogiri'
+require 'open-uri'
+
+require_relative 'cell'
 
 class Board
 
   attr_reader :boardstring, :cells, :rows, :squares, :columns
 
-  def initialize
-    @boardstring= generate
+  def initialize(boardstring = generate)
+    @boardstring = boardstring
     setup
   end
 
@@ -30,6 +32,26 @@ class Board
     end
   end
 
-end
+  def generate
+    doc = Nokogiri::HTML(open('http://www.free-sudoku.com/sudoku.php'))
 
-binding.pry
+    boardarray = []
+    i = 0
+
+    until i == 82
+      boardarray << doc.css("##{i}").text
+      i+=1
+    end
+
+    boardarray.map! do |cell|
+      if cell == ''
+        cell = '0'
+      else
+        cell = cell
+      end
+    end
+
+    boardarray.join
+  end
+
+end
