@@ -1,7 +1,7 @@
 require 'pry'
-module PuzzleGen
-  require 'nokogiri'
-  require 'open-uri'
+require 'nokogiri'
+require 'open-uri'
+module BoardHelper
 
   def generate
     doc = Nokogiri::HTML(open('http://www.free-sudoku.com/sudoku.php'))
@@ -24,9 +24,9 @@ module PuzzleGen
 
     boardarray.join
   end
-
-
 end
 
-include PuzzleGen
+include BoardHelper
 binding.pry
+
+

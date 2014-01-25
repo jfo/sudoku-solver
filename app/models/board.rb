@@ -1,11 +1,12 @@
-# require 'puzzlegen'
+require 'pry'
+require 'board_helper.rb'
 
 class Board
 
   attr_reader :boardstring, :cells, :rows, :squares, :columns
 
-  def initialize(boardstring)
-    @boardstring=boardstring
+  def initialize
+    @boardstring= generate
     setup
   end
 
@@ -30,3 +31,5 @@ class Board
   end
 
 end
+
+binding.pry
