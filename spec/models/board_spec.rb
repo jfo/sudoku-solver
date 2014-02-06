@@ -3,11 +3,11 @@ require 'spec_helper'
 describe Board do
 
   let(:boardstring) {
-    '003020600900305001001806400008102900700000008006708200002609500800203009005010300'
+    '000000000111111111222222222333333333444444444555555555666666666777777777888888888'
   }
-  let(:first_row) { '003020600' }
-  let(:first_column) { '090070080' }
-  let(:first_square) { '003900001' }
+  let(:first_row) { '000000000' }
+  let(:first_column) { '012345678' }
+  let(:first_square) { '000111222' }
 
   let(:board) { Board.new(boardstring) }
 
@@ -29,7 +29,7 @@ describe Board do
     end
 
     it 'creates squares from cells' do
-      expect(board.squares.first.map(&:value).join).to eql first_square
+      expect(board.squares.first.flatten.map(&:value).join).to eql first_square
     end
   end
 
