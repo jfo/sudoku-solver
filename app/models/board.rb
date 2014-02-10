@@ -5,6 +5,7 @@ class Board
   def initialize(boardstring)
     @boardstring = boardstring
     @boardstring = '000000000111111111222222222333333333444444444555555555666666666777777777888888888'
+    @boardstring = '619030040270061008000047621486302079000014580031009060005720806320106057160400030'
     setup
   end
 
@@ -23,38 +24,22 @@ class Board
 
     @squares = [[],[],[],[],[],[],[],[],[]]
 
+    i=0
+    square_index = 0
 
+    3.times do
+      @rows[i..(i + 2)].each do |this|
+        this[0..2].each {|e| squares[square_index] << e}
+      end
+      @rows[i..(i + 2)].each do |this|
+        this[3..5].each {|e| squares[square_index + 1] << e}
+      end
+      @rows[i..(i + 2)].each do |this|
+        this[6..8].each {|e| squares[square_index + 2] << e}
+      end
+      i += 3
+      square_index += 3
 
-    @rows[0..2].each do |this|
-      this[0..2].each {|e| squares[0] << e}
     end
-    @rows[0..2].each do |this|
-      this[3..5].each {|e| squares[1] << e}
-    end
-    @rows[0..2].each do |this|
-      this[6..8].each {|e| squares[2] << e}
-    end
-
-    @rows[3..5].each do |this|
-      this[0..2].each {|e| squares[3] << e}
-    end
-    @rows[3..5].each do |this|
-      this[3..5].each {|e| squares[4] << e}
-    end
-    @rows[3..5].each do |this|
-      this[6..8].each {|e| squares[5] << e}
-    end
-
-    @rows[6..8].each do |this|
-      this[0..2].each {|e| squares[6] << e}
-    end
-    @rows[6..8].each do |this|
-      this[3..5].each {|e| squares[7] << e}
-    end
-    @rows[6..8].each do |this|
-      this[6..8].each {|e| squares[8] << e}
-    end
-
   end
-
 end
