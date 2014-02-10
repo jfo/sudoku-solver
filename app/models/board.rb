@@ -1,11 +1,10 @@
-require_relative 'cell'
-
 class Board
 
   attr_reader :boardstring, :cells, :rows, :squares, :columns
 
   def initialize(boardstring)
     @boardstring = boardstring
+    @boardstring = '000000000111111111222222222333333333444444444555555555666666666777777777888888888'
     setup
   end
 
@@ -59,74 +58,3 @@ class Board
   end
 
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # index = 0
-    # until index == 3
-    #   i = 0
-    # until i == 3
-
-    #   3.times do
-    #   @squares[index] << @boardstring[i]
-    #   i += 1
-    #   end
-
-    # i += 9
-    # end
-    # index += 27
-    # end
-
-    # # @cells.each_with_index do |cell, index|
-    # #   square_row = index / 27
-
-    # # square_rows.each do |board|
-    # #   index = 0
-    # #   i = 0
-    # #   until index == 3
-    # #     @squares << []
-    # #     until i == 3
-    # #       @squares << board[index][i]
-    # #       i +=1
-    # #     end
-    # #     index += 1
-    # #   end
-    # # end
-
